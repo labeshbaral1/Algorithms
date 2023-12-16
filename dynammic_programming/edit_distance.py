@@ -19,3 +19,22 @@ def edit_distance(str1, str2):
                                    dp[i-1][j-1])    
 
     return dp[m][n]
+
+def ED(str1, str2):
+    if len(str1) == 0:
+        return len(str2)
+    if len(str2) == 0:
+        return len(str1)
+
+    
+    if str1[-1] == str2[-1]:
+        return ED(str1[:-1], str2[:-1])
+
+    return 1 + min(ED(str1, str2[:-1]),   
+                   ED(str1[:-1], str2),   
+                   ED(str1[:-1], str2[:-1])
+                  )
+
+
+print(ED("abba", "caba"))
+

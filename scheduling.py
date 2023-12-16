@@ -23,4 +23,16 @@ def count(S, F):
 count(S, F)
 
 
+def scheduling(S, F):
+    c = 0
+    last = 0
+    for index in range(len(F)):
+        if S[index] >= last:
+            c+=1
+            last=F[index]
+    return c
 
+
+print(scheduling(S, F))
+        
+        
